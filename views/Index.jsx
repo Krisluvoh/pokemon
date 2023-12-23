@@ -7,6 +7,7 @@ class Index extends React.Component {
   };
 
   render() {
+    const { pokemon } = this.props;
     const myStyle = {
       color: '#ffffff',
       backgroundColor: '#000000',
@@ -22,8 +23,12 @@ class Index extends React.Component {
         <body style={myStyle}>
           <h1>See All The Pokemon!</h1>
           <ul>
-            {this.props.pokemon.map((poke, index) => (
-              <li key={index}>{this.capitalizeFirstLetter(poke.name)}</li>
+            {pokemon.map((poke, index) => (
+              <li key={index}>
+                <a href={`/pokemon/${index}`}>
+                  {this.capitalizeFirstLetter(poke.name)}
+                </a>
+              </li>
             ))}
           </ul>
         </body>
