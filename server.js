@@ -19,6 +19,11 @@ app.get('/pokemon/:id', (req, res) => {
   res.send(`<img src="${imgUrl}" alt="Pokemon ${id}"/>`);
 });
 
+// Show route to display the ID
+app.get('/pokemon/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
