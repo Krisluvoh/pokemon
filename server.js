@@ -13,15 +13,18 @@ app.get('/pokemon', (req, res) => {
 });
 
 // Dynamic route to get Pokemon image based on the number
-app.get('/pokemon/:id', (req, res) => {
+app.get('/pokemon/:id/image', (req, res) => {
   const { id } = req.params;
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
   res.send(`<img src="${imgUrl}" alt="Pokemon ${id}"/>`);
 });
 
-// Show route to display the ID
+// Show route to display the Pokemon details
 app.get('/pokemon/:id', (req, res) => {
-  res.send(req.params.id);
+  const { id } = req.params;
+  const selectedPokemon = pokemon[id];
+  const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  res.render('Show', { pokemon: { name: selectedPokemon.name, img: imgUrl } });
 });
 
 const PORT = process.env.PORT || 3000;
