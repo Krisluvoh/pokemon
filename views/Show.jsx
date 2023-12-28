@@ -23,7 +23,7 @@ class Show extends React.Component {
         <body style={myStyle}>
           <h1>Gotta Catch 'Em All</h1>
           <h2>{this.capitalizeFirstLetter(pokemon.name)}</h2>
-          <img src={`${pokemon.img}.jpg`} alt={pokemon.name} />
+          <img src={pokemon.img} alt={pokemon.name} />
           <a href="/">Back</a>
         </body>
       </html>
